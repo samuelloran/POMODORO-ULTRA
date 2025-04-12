@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro Avançado</title>
+  <link rel="manifest" href="manifest.json" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    #progressBar {
+      width: 80%;
+      height: 20px;
+      background: #ccc;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #progress {
+      height: 100%;
+      width: 100%;
+      background: #4caf50;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+    }
+    canvas {
+      max-width: 500px;
+      margin-top: 30px;
+    }
+    #tempoTotalFoco {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="timer">25:00</h1>
+  <div id="progressBar"><div id="progress"></div></div>
+
+  <!-- Botões principais -->
+  <div>
+    <button onclick="iniciarCronometro()">Iniciar</button>
+    <button onclick="pausarCronometro()">Pausar</button>
+    <button onclick="resetarCronometro()">Resetar</button>
+    <br />
+    <button onclick="mudarModo('foco')">Foco</button>
+    <button onclick="mudarModo('pausa')">Pausa Curta</button>
+    <button onclick="mudarModo('pausaLonga')">Pausa Longa</button>
+    <button onclick="mudarModo('turbo')">Pomodoro Turbo 🏁</button>
+  </div>
+
+  <!-- Local onde JS insere tempo total, gráfico, botões extra -->
+  <div id="painelEstatisticas"></div>
+
+  <canvas id="graficoProdutividade"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
